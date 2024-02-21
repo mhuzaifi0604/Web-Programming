@@ -1,0 +1,100 @@
+{
+  "months" :[    
+    {
+      "id": 1,
+      "name": "January",
+      "date": "01/01",
+      "imagePath": "./images/january.jpg",
+      "numberOfDays": 31,
+      "season": "Winter"
+    },
+    {
+      "id": 2,
+      "name": "February",
+      "date": "02/01",
+      "imagePath": "./images/feburary.jpg",
+      "numberOfDays": 28,
+      "season": "Winter"
+    },
+    {
+      "id": 3,
+      "name": "March",
+      "date": "03/01",
+      "imagePath": "./images/march.jpg",
+      "numberOfDays": 31,
+      "season": "Spring"
+    },
+    {
+      "id": 4,
+      "name": "April",
+      "date": "04/01",
+      "imagePath": "./images/april.jpg",
+      "numberOfDays": 30,
+      "season": "Spring"
+    },
+    {
+      "id": 5,
+      "name": "May",
+      "date": "05/01",
+      "imagePath": "./images/may.jpg",
+      "numberOfDays": 31,
+      "season": "Spring"
+    },
+    {
+      "id": 6,
+      "name": "June",
+      "date": "06/01",
+      "imagePath": "./images/june.jpg",
+      "numberOfDays": 30,
+      "season": "Summer"
+    },
+    {
+      "id": 7,
+      "name": "July",
+      "date": "07/01",
+      "imagePath": "./images/july.webp",
+      "numberOfDays": 31,
+      "season": "Summer"
+    },
+    {
+      "id": 8,
+      "name": "August",
+      "date": "08/01",
+      "imagePath": "./images/august.jpg",
+      "numberOfDays": 31,
+      "season": "Summer"
+    },
+    {
+      "id": 9,
+      "name": "September",
+      "date": "09/01",
+      "imagePath": "./images/september.jpg",
+      "numberOfDays": 30,
+      "season": "Fall"
+    },
+    {
+      "id": 10,
+      "name": "October",
+      "date": "10/01",
+      "imagePath": "./images/october.jpg",
+      "numberOfDays": 31,
+      "season": "Fall"
+    },
+    {
+      "id": 11,
+      "name": "November",
+      "date": "11/01",
+      "imagePath": "./images/november.avif",
+      "numberOfDays": 30,
+      "season": "Fall"
+    },
+    {
+      "id": 12,
+      "name": "December",
+      "date": "12/01",
+      "imagePath": "./images/december.png",
+      "numberOfDays": 31,
+      "season": "Winter"
+    }
+  ]
+}

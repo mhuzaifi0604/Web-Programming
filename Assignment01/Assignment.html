@@ -1,0 +1,170 @@
+<!-- 
+    Name: Muhammad Huzaifa
+    Rollno: 20I-0604
+    Assignment # 01
+    Month Details based on user input from prompt
+    Web Programming
+    Assignment.html
+ -->
+
+<!DOCTYPE html>
+<html>
+    <!-- Defining Meta tags for the assignment | author, desription and tags -->
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Assignment allowing user to look for single & multiple months data based on input."/>
+    <meta name="keywords" content="JSON, HTML, CSS, JS, JavaScript, Calender, Months"/>
+    <meta name="author" content="Muhammad Huzaifa">
+<!-- Defining link to stylesheet for external styling -->
+<link rel="stylesheet" href="Styles.css" />
+
+<head>
+    <!-- Title of the Web Page -->
+    <title>Huzaifa's Assignment</title>
+</head>
+<!-- Defining body tag with external styling in Styles.css -->
+<body>
+    <!-- Initializing script tag to define functions place on buttons and page loads -->
+    <script type="text/javascript">
+        var months = []; // defining months array to store array details
+        function show_custom_alert() { // function to ask for user if he wants to see single or multiple images
+            var alert = document.getElementById("alertmodal"); // getting div by its id
+            if (alert.style.display === "none") {
+                alert.style.display = 'block'; // changing display property of div to block to display it in screen
+            } else if (alert.style.display === "block") {
+                alert.style.display = 'none'; // changing display property of div to none to have the div disappear after its purpose is done
+            }
+        }
+        
+        function single_image() { // function to show details of a single image
+            // getting input from user on what months' details he wants to see
+            const input = prompt("Enter the name of the month: ").toLowerCase();
+            months.forEach((month) => { // iterating from all months array to check for user input month
+                if (month.name.toLowerCase() === input) { // checking id the name matches to user input
+                    // setting divs diplay property to block to show input months' details
+                    document.getElementById('displayinfo').style.display = 'block';
+                    // getting div reference to add details to it
+                    var displayinfo = document.getElementById('displayinfo');
+                    // adding month details from feched json file to div via innerhtml
+                    displayinfo.innerHTML = `
+                    <p>ID: ${month.id}<br></p>
+                    <p>Name: ${month.name}<br></p>
+                    <p>Date: ${month.date}<br></p>
+                    <p>Total Days: ${month.numberOfDays}<br></p>
+                    <p>Season: ${month.season}<br></p>
+                    <img src=\"${month.imagePath}\" alt="image not found!"/>
+                    `;
+                }
+            });
+            // creating a get back button when image details appear on screen to go back to inital screen
+            var back = document.createElement('button');
+            back.innerText = "Back"; // givinf name to button (text on button to show)
+            back.onclick = function () { window.location.reload(); }; // setting what to do when a button is clicked (reload page)
+            document.body.appendChild(back); // appending the button to bottom of image details screen
+        }
+        
+        function multiple_images() { // function to show the checkboxed form on selecting multiple images option
+            var displayform = document.getElementById('monthDiv'); // getting checkbox form by its id
+            if (displayform.style.display === 'none') {
+                displayform.style.display = 'block'; // to display the Form on screen
+            } else if (displayform.style.display === 'block') {
+                displayform.style.display = 'none'; // to hide the form from the screen
+            }
+        }
+
+        function getSelectedMonths(event) { // function to display multiple images on screen via checkbox selections
+            event.preventDefault(); // preventing default page reload on function execution
+            // getting all checkbox in form fpr months via their class .month
+            var checkboxes = document.querySelectorAll('.month');
+            var selectedmonths = []; // array to store the selected month names
+            for (let i = 0; i < checkboxes.length; i++) { // loop to check for selected months by user
+                if (checkboxes[i].checked) {
+                    selectedmonths.push(checkboxes[i].value) // adding name of month to the array created above
+                }
+            }
+            // hiding the checkbox form on clicking the submit button on form
+            document.getElementById("monthDiv").style.display = 'none';
+            // looping through selected months to match their names from data.json fetyched array
+            for (let i = 0; i < selectedmonths.length; i++) {
+                var eachmonth = document.createElement('div'); // creating a new div to show details pf one of the selected month
+                eachmonth.style.display = 'block'; // changinf divs display property to block to show it on screen
+                eachmonth.classList.add("displayinfo"); // adding class to div to style via external stylesheet 
+                months.forEach((month) => { // iterating over fetched month data to match selected months
+                    if (month.name === selectedmonths[i]) { // if name of selected month matches from one of in the array
+                        // adding details of month to the new div created above
+                        eachmonth.innerHTML = `
+                <p>ID: ${month.id}<br></p>
+                <p>Name: ${month.name}<br></p>
+                <p>Date: ${month.date}<br></p>
+                <p>Total Days: ${month.numberOfDays}<br></p>
+                <p>Season: ${month.season}<br></p>
+                <img src="${month.imagePath}" alt="image not found!"/>
+                `;
+                    }
+                })
+                document.body.appendChild(eachmonth); // appending div to body
+            }
+            // creating a get back button when image details appear on screen to go back to inital screen
+            var back = document.createElement('button');
+            back.innerText = "Back"; // givinf name to button (text on button to show)
+            back.onclick = function () { window.location.reload(); }; // setting what to do when a button is clicked (reload page)
+            document.body.appendChild(back); // appending the button to bottom of image details screen
+        }
+
+        // javascript to run when page is loaded
+        fetch('data.json') // fetching data from data.json file
+            .then(response => response.json()) // adding json data from file to response
+            .then(data => {
+                months = data.months; // adding month details to local months array to use in code
+            })
+            // in case there is an error fetching data from the json file
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+    <!-- Heading # 01 -->
+    <h1>Welcome To The Assignment</h1>
+    <!-- Button for user to show div alert asking him for single or multiple months data -->
+    <button onclick="show_custom_alert()">
+        Get Images
+    </button>
+    <!-- modal created with single and multiple options for users -->
+    <div id="alertmodal" style="display: none;">
+        <h2>Select Image options!</h2>
+        <!-- button and function on clicking button | selecting single month to show details -->
+        <button onclick="single_image()">
+            Single
+        </button>
+        <!-- button and function on clicking button | selecting multiple months to show multiple details -->
+        <button onclick="multiple_images()">
+            Multiple
+        </button>
+    </div>
+    <!-- div to show details of a single months | default display none -->
+    <div id="displayinfo" style="display: none;"></div>
+    <!-- div to ask user what multiple months he wants to select -->
+    <div id="monthDiv" style="display: none;">
+        <!-- form containing checkboxes for each month to be selected -->
+        <form id="monthsForm" style="gap: 2px;">
+            <!-- 
+                labels for each month
+                check boxes for  ultiple selections
+                same class month to selet all checkboxes by class to look for selected one in script functions
+            -->
+            <label><input type="checkbox" class="month" value="January">January</label>
+            <label><input type="checkbox" class="month" value="February">February</label>
+            <label><input type="checkbox" class="month" value="March">March</label>
+            <label><input type="checkbox" class="month" value="April">April</label>
+            <label><input type="checkbox" class="month" value="May">May</label>
+            <label><input type="checkbox" class="month" value="June">June</label>
+            <label><input type="checkbox" class="month" value="July">July</label>
+            <label><input type="checkbox" class="month" value="August">August</label>
+            <label><input type="checkbox" class="month" value="September">September</label>
+            <label><input type="checkbox" class="month" value="October">October</label>
+            <label><input type="checkbox" class="month" value="November">November</label>
+            <label><input type="checkbox" class="month" value="December">December</label><br>
+            <!-- action to take on submitting form | calling this function in script tag to show details -->
+            <button type="submit" onclick="getSelectedMonths(event)">Get Monthly Details</button><br>
+        </form>
+    </div>
+</body>
+
+</html>

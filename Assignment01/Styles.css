@@ -1,0 +1,94 @@
+/* 
+    Name: Muhammad Huzaifa
+    Rollno: 20I-0604
+    Assignment # 01
+    Styling Sheet for Monthly details' HTML Doc
+    Web Programming
+    Styles.css 
+*/
+/* Styling for Page body */
+body{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    background-color: #151515;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    gap: 10px;
+    /* border: 2px solid green; */
+}
+
+h1{/* styling the 1st heading tag/component on page */
+    display: flex;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: green;
+    font: bold;
+    font-family: cursive;
+    font-style: italic;
+    font-size: xx-large;
+    /* border: 2px solid red; */
+}
+
+h2{/* styling the 2nd heading tag/component on page */
+    display: flex;
+    width: auto;
+    height: auto;
+    color: white;
+    text-align: center;
+}
+
+button{ /* styling all the button in the HTML file */
+    color: white;
+    background-color: green;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 2px;
+}
+/* Styling 3ids and a class #'s for ids and div.displayinfo is a class */
+#alertmodal, #displayinfo, #monthDiv, div.displayinfo{
+    width: max-content;
+    height: max-content;
+    gap: 10px;
+    flex-direction: column;
+    color: white;
+    background-color: #212121;
+    box-shadow: gray;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+form{ /* styling the form with checkboxes to select multiple months*/
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: max-content;
+    border-bottom: 1px solid white;
+    justify-content: left;
+    align-items: left;
+    text-align: left;
+}
+
+img{ /* styling images to have same styling in all month detils*/
+    width:1000px; 
+    height:500px;
+    border:1px solid red; padding:1px;
+    border-radius:5px; 
+    justify-content:center; 
+    align-items: center;
+
+}
+
+p{ /* styling para tag in file*/
+    border-bottom: 1px solid white;
+}
