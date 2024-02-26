@@ -85,6 +85,9 @@
             // hiding the checkbox form on clicking the submit button on form
             document.getElementById("monthDiv").style.display = 'none';
             // looping through selected months to match their names from data.json fetyched array
+            var outercontainer = document.createElement('div');
+            outercontainer.classList.add("outercontainer");
+            outercontainer.style.display = 'flex';
             for (let i = 0; i < selectedmonths.length; i++) {
                 var eachmonth = document.createElement('div'); // creating a new div to show details pf one of the selected month
                 eachmonth.style.display = 'block'; // changinf divs display property to block to show it on screen
@@ -102,8 +105,9 @@
                 `;
                     }
                 })
-                document.body.appendChild(eachmonth); // appending div to body
+                outercontainer.appendChild(eachmonth); // appending div to body
             }
+            document.body.appendChild(outercontainer);
             // creating a get back button when image details appear on screen to go back to inital screen
             var back = document.createElement('button');
             back.innerText = "Back"; // givinf name to button (text on button to show)

@@ -80,8 +80,8 @@ form{ /* styling the form with checkboxes to select multiple months*/
 }
 
 img{ /* styling images to have same styling in all month detils*/
-    width:1000px; 
-    height:500px;
+    width:400px; 
+    height:200px;
     border:1px solid red; padding:1px;
     border-radius:5px; 
     justify-content:center; 
@@ -91,4 +91,11 @@ img{ /* styling images to have same styling in all month detils*/
 
 p{ /* styling para tag in file*/
     border-bottom: 1px solid white;
+}
+.outercontainer{
+    border: 1px sold red;
+    gap: 4px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
